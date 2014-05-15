@@ -1,0 +1,24 @@
+.detail-view img {
+	vertical-align: middle;
+    height: 100%;
+}
+
+.scale-down {
+    height: 360px;
+	cursor:pointer;
+}
+
+.breadcrumb{
+	margin-top:43px !important;
+}
+
+.navbar_pills{
+	margin:0 auto;
+	width: 350px;
+	margin-bottom: 0 !important;
+}
+
+.portletTitle {
+	font-size:15px;
+	font-weight:bold;
+}
