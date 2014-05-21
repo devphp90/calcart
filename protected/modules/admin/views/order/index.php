@@ -35,9 +35,9 @@ $this->widget('bootstrap.widgets.TbMenu', array(
         array('label' => 'Create', 'icon' => 'icon-plus', 'url' => Yii::app()->controller->createUrl('create'), 'linkOptions' => array()),
         array('label' => 'List', 'icon' => 'icon-th-list', 'url' => Yii::app()->controller->createUrl('index'), 'linkOptions' => array()),
         array('label' => 'Search', 'icon' => 'icon-search', 'url' => '#', 'linkOptions' => array('class' => 'search-button')),
-        array('label' => 'Export to PDF', 'icon' => 'icon-download', 'url' => Yii::app()->controller->createUrl('GeneratePdf'), 'linkOptions' => array('target' => '_blank'), 'visible' => true),
-        array('label' => 'Export to Excel', 'icon' => 'icon-download', 'url' => Yii::app()->controller->createUrl('GenerateExcel'), 'linkOptions' => array('target' => '_blank'), 'visible' => true),
-        array('label' => 'Print', 'icon' => 'icon-print', 'url' => array('print'), 'linkOptions' => array('class' => 'jprint')),
+        array('label' => 'Export to PDF', 'icon' => 'icon-download', 'url' => Yii::app()->controller->createUrl('GeneratePdf'), 'linkOptions' => array('target'=>'_blank','title'=>'Coming soon', 'onclick' => 'return false'), 'visible' => true),
+        array('label' => 'Export to Excel', 'icon' => 'icon-download', 'url' => Yii::app()->controller->createUrl('GenerateExcel'), 'linkOptions' => array('target'=>'_blank','title'=>'Coming soon', 'onclick' => 'return false'), 'visible' => true),
+//        array('label' => 'Print', 'icon' => 'icon-print', 'url' => array('print'), 'linkOptions' => array('class' => 'jprint')),
         array('label' => 'Help', 'icon' => 'icon-question-sign', 'url' => array('#myModal'), 'linkOptions' => array('data-toggle' => 'modal'))
     ),
 ));

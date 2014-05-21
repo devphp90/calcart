@@ -28,7 +28,7 @@ body {visibility:hidden;}
 <script type="text/javascript">
 function printDiv()
 {
-alert("ok");
+console.log('admin-layout-main');
 window.print();
 
 }
