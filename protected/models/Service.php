@@ -38,7 +38,7 @@ class Service extends ActiveRecord
      */
     public function tableName()
     {
-        return 'service';
+        return 'Service';
     }
 
     /**
