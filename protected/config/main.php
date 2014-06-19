@@ -128,5 +128,8 @@ return array(
         'mailUsername' => 'noreply@axeo.net',
         'mailPassword' => 'MX{+%;z;cIGO',
         'mailSendMultiples' => 5,
+        'thumbs' => array(
+            'small' => '128x128',
+        )
     ),
 );

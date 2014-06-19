@@ -64,8 +64,11 @@ class ServiceController extends Controller
             
             if ($model->validate()) {
                 if (!is_null($model->image)) {
-                    $model->image->saveAs(Utils::uploadPath('image/service/'. $model->image->name));
-                    $model->image = $model->image->name;
+                    $path = Utils::uploadPath('image/service/');
+                    if ($model->image->saveAs($path . $model->image->name)) {
+                        $model->image = $model->image->name;
+                        Utils::createThumb($path, $model->image, param('thumbs', 'small'));
+                    }
                 }
                 
                 if ($model->save()) {
@@ -97,10 +100,17 @@ class ServiceController extends Controller
             $model->last_update = date('Y-m-d H:i:s', time());
             if ($model->validate()) {
                 if (!is_null($model->image)) {
-                    if ($model->image->saveAs(Utils::uploadPath('image/service/'. $model->image->name))) {
+                    $path = Utils::uploadPath('image/service/');
+                    
+                    if ($model->image->saveAs($path. $model->image->name)) {
                         $model->image = $model->image->name;
-                        if (is_file(Utils::uploadPath('image/service/' . $oldImage))) {
-                            unlink(Utils::uploadPath('image/service/' . $oldImage));
+                        $thumb = param('thumbs', 'small');
+                        // create new thumb
+                        Utils::createThumb($path, $model->image, $thumb);
+                        
+                        // delete old thumb
+                        if (is_file($path . $oldImage)) {
+                            Utils::deleteFiles($path, $oldImage, 'small');
                         }
                     }
                 } else {
@@ -144,22 +154,10 @@ class ServiceController extends Controller
         $model = new Service('search');
         $model->unsetAttributes();  // clear any default values
 
-        $totalAmount = 0;
-
         if (isset($_GET['Service'])) {
             $model->attributes = $_GET['Service'];
-
-            $criteria = new CDbCriteria();
-
-            //if (!empty($model->date)) $criteria->addCondition('date >= "'.Yii::app()->dateFormatter->format('yyyy-MM-dd 00:00:01', $model->date).'"');
-            //if (!empty($model->endDate)) $criteria->addCondition('date <= "'.Yii::app()->dateFormatter->format('yyyy-MM-dd 23:59:59', $model->endDate).'"');
-            //$criteria->params = array(
-            //	':user_id'=>Yii::app()->user->id
-            //);
-        } else {
-            
         }
-
+        
         $this->render('index', array(
             'model' => $model,
         ));

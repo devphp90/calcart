@@ -125,7 +125,7 @@ class Utils
         @mkdir($desPath, 0777, true);
 
         if (!class_exists('phpThumb', false)) {
-            Yii::import("common.vendors.phpThumb.*");
+            Yii::import("application.vendors.phpThumb.*");
             require_once("phpthumb.class.php");
         }
 
@@ -177,24 +177,21 @@ class Utils
     /**
      * Delete original file and its thumb files
      */
-    public static function deleteFiles($source, $rootPath, $thumb = '')
+    public static function deleteFiles($rootPath, $fileName, $thumb = '')
     {
-        $rootPath = self::uploadPath($rootPath);
         $sizes = array();
-        @unlink($rootPath . '/' . $source);
+        @unlink($rootPath . '/' . $fileName);
         if (!empty($thumb)) {
-            $sizes = param('thumb', $thumb);
+            $sizes[] = param('thumbs', $thumb);
         } else {
-            $allThumbs = param('thumb');
+            $allThumbs = param('thumbs');
             foreach ($allThumbs as $thumbs)
-                $sizes = array_merge($sizes, $thumbs);
+                $sizes[] = $thumbs;
         }
+        
         if (!empty($sizes)) {
             foreach ($sizes as $size) {
-                $fileName = explode('/', $source);
-                $count = count($fileName);
-                $filePath = implode('/', array($fileName[$count - 4], $fileName[$count - 3], $fileName[$count - 2]));
-                @unlink($rootPath . '/' . $filePath . '/' . $size . '/' . $fileName[$count - 1]);
+                @unlink($rootPath . '/' . $size . '/' . $fileName);
             }
         }
     }

@@ -42,11 +42,19 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
                                 <?php echo $form->labelEx($model,'price'); ?>
                                 <?php echo $form->textField($model,'price'); ?>
                         </div>
-
+                        
+                        <?php if (!$model->isNewRecord && !empty($model->image)) { ?>
+                        <div class="control-group">
+                            <label for="Service_qty">Current Image</label>
+                            <img src="<?php echo $model->getImage(param('thumbs', 'small')) ?>"/>
+                        </div>
+                        <?php } ?>
+                        
                         <div class="control-group <?php if ($model->hasErrors('image')) echo "error"; ?>">
                                 <?php echo $form->labelEx($model,'image'); ?>
                                 <?php echo $form->fileField($model,'image'); ?>
                         </div>
+                        
                         <div id="control-group <?php if ($model->hasErrors('active')) echo "error"; ?>">
                                 <?php echo $form->labelEx($model,'active'); ?>
                                 <?php echo $form->dropDownList($model,'active',array('inactive','active'));?>

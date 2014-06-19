@@ -141,5 +141,24 @@ class Service extends ActiveRecord
                     'criteria' => $criteria,
                 ));
     }
+    
+    public function getImage($thumb = null) 
+    {
+        $path = Utils::uploadUrl('/image/service');
+        if (!empty($thumb)) {
+            return $path . '/' . $thumb . '/' . $this->image;
+        } else {
+            return $path . '/' . $this->image;
+        }
+    }
+    
+    public function afterDelete()
+    {
+        $parent = parent::afterDelete();
+        
+        Utils::deleteFiles(Utils::uploadPath('/image/service'), $this->image);
+        
+        return $parent;
+    }
 
 }
