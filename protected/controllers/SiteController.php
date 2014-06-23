@@ -50,6 +50,7 @@ class SiteController extends Controller
     public function actionIndex($id = 8)
     {
         Yii::app()->controller->uid = $id;
+        $this->pageTitle = 'AXEO CalCart';
         // renders the view file 'protected/views/site/index.php'
         // using the default layout 'protected/views/layouts/main.php'
         //if(Yii::app()->user->isGuest)

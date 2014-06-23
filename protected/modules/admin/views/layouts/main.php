@@ -43,7 +43,7 @@ window.print();
 				'class'=>'bootstrap.widgets.TbMenu',
 				'items'=>array(
 					array('label'=>'Home', 'url'=>array('/admin/default/index')),
-					array('label'=>'Services',  'url'=>array('/admin/service/index'), 'visible'=>!Yii::app()->user->isGuest),
+					array('label'=>'Service Sessions',  'url'=>array('/admin/service/index'), 'visible'=>!Yii::app()->user->isGuest),
 					array('label'=>'Orders',  'url'=>array('/admin/order/index'), 'visible'=>!Yii::app()->user->isGuest),
 					array('label'=>'Accounts',  'url'=>array('/admin/tenant/index'), 'visible'=>Yii::app()->user->isAdmin),
 					array('label'=>'SignUp', 'url'=>array('/site/register'), 'visible'=>Yii::app()->user->isGuest),
@@ -55,7 +55,7 @@ window.print();
 				'htmlOptions'=>array('class'=>'pull-right'),
 				'items'=>array(
 					//array('label'=>Yii::app()->user->name, 'url'=>array('/admin/tenant/view','id'=>Yii::app()->user->id), 'visible'=>!Yii::app()->user->isGuest),
-					array('label'=>'My Cart', 'linkOptions' => array('target' => '_blank'), 'url'=> Yii::app()->createUrl('/site/index', array('id'=>Yii::app()->user->id)), 'visible'=>!Yii::app()->user->isGuest),
+					array('label'=>'MyCart', 'linkOptions' => array('target' => '_blank'), 'url'=> Yii::app()->createUrl('/site/index', array('id'=>Yii::app()->user->id)), 'visible'=>!Yii::app()->user->isGuest),
 					array('label'=>'MyProfile', 'url'=>array('/admin/tenant/view','id'=>Yii::app()->user->id), 'visible'=>!Yii::app()->user->isGuest),
 					array('label'=>'Help', 'url'=>array('/admin/default/help'), 'visible'=>!Yii::app()->user->isGuest),
 					//array('label'=>'Manage Tenants', 'url'=>array('/admin/tenant/index'), 'visible'=>Yii::app()->user->isAdmin),

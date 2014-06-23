@@ -26,7 +26,7 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
                         </div>
                         <div class="control-group <?php if ($model->hasErrors('description')) echo "error"; ?>">
                                 <?php echo $form->labelEx($model,'description'); ?>
-                                <?php echo $form->textArea($model,'description'); ?>
+                                <?php echo $form->textArea($model,'description', array('rows' => 5, 'class' => 'span4')); ?>
                         </div>
 
                         <div class="control-group <?php if ($model->hasErrors('qty')) echo "error"; ?>">
@@ -62,7 +62,7 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
                     </div>
 		</div>
 
-		<div class="form-actions">
+		<div class="form-actions" style="padding-left: 30px;">
                     <?php $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'submit', 'type'=>'primary', 'icon'=>'ok white', 'label'=>$model->isNewRecord ? 'Create' : 'Save')); ?>
                     <?php $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'reset', 'icon'=>'remove', 'label'=>'Reset')); ?>
 		</div>

@@ -107,7 +107,7 @@ class Service extends ActiveRecord
             'last_update' => 'Last Update',
             'location' => 'Location',
             'active' => 'Active',
-            'qty_ordered' => 'Quanlity Ordered',
+            'qty_ordered' => 'Quantity Ordered',
         );
     }
 
