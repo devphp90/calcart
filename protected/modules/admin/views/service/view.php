@@ -12,7 +12,7 @@ $this->menu = array(
 );
 ?>
 
-<h1>Service Detail</h1>
+<h1>Service Session</h1>
 <hr />
 <?php
 $this->beginWidget('zii.widgets.CPortlet', array(
