@@ -4,13 +4,13 @@
 			<img src="<?php echo Yii::app()->controller->createUrl('loadImage', array('id'=>$this->model->id)); ?>"  style="width:150px;" />
 		</div>
 	</div>
-	<div class="span3" style="float:left">
+	<div class="span3" style="float:left; margin-top: 10px;">
 		<b><?php echo $this->model->name; ?></b> <br/>
 		<?php echo $this->model->fPhone; ?><br/>
 		<?php echo $this->model->email; ?>
 
 	</div>
-	<div class="span5" style="float:left">
+	<div class="span5" style="float:left; margin-top: 10px;">
 	<?php echo $this->model->address1; ?><br/>
 	<?php echo $this->model->address2; ?><br/>
 	<?php echo $this->model->city; ?>,  <?php echo $this->model->state; ?>,  <?php echo $this->model->zip; ?><br/>
