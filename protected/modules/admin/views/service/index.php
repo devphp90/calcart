@@ -21,7 +21,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Service Session</h1>
+<h1>Service Sessions</h1>
 <hr />
 <?php
 $this->beginWidget('zii.widgets.CPortlet', array(
