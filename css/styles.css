@@ -22,3 +22,13 @@
 	font-size:15px;
 	font-weight:bold;
 }
+.navbar-inner {
+    min-height: 60px;
+    border-width: 0 !important;
+}
+.navbar-inner ul li {
+    line-height: 40px;
+}
+.navbar .brand {
+    padding: 20px;
+}
